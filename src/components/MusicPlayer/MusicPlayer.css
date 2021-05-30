@@ -44,3 +44,9 @@
 .player-info button img:hover {
   transform: scale(1.2);
 }
+
+/* DARK MODE */
+
+.dark-mode button {
+  background-color: rgb(60, 60, 60);
+}

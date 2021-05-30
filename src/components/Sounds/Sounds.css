@@ -25,3 +25,14 @@
   background-color: pink;
   color: white;
 }
+
+/* DARK MODE */
+
+.dark-mode button {
+  background-color: rgb(60, 60, 60);
+  color: white;
+}
+
+.dark-mode button:hover {
+  color: black;
+}

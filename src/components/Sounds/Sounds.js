@@ -3,7 +3,7 @@ import './Sounds.css';
 
 function Sounds (props) {
     return (
-        <div className="sounds-panel">
+        <div className={props.soundsCompClass}>
         {props.sounds.map((sound) =>
             <div className="btn"> 
             <button 

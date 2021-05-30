@@ -49,3 +49,12 @@ header button img:hover {
   width: 100%;
   display: flex;
 }
+
+.dark-mode {
+  background-color: rgb(60, 60, 60);
+  color: white;
+}
+
+.dark-mode button {
+  background-color: rgb(60, 60, 60);
+}

@@ -37,6 +37,10 @@ class App extends Component {
     icon: playIcon,
     isDarkMode: false,
     darkModeIcon: darkMode,
+    appClass: "App",
+    playerCompClass: "music-player",
+    soundsCompClass: "sounds-panel",
+
   }
 
   //  HANDLER FUNCTIONS
@@ -72,12 +76,18 @@ class App extends Component {
     if (this.state.isDarkMode === false) {
       this.setState({
         darkModeIcon: lightMode,
-        isDarkMode: true
+        isDarkMode: true,
+        appClass: "App dark-mode",
+        soundsCompClass: "sounds-panel dark-mode",
+        playerCompClass: "music-player dark-mode"
       })
     } else if (this.state.isDarkMode === true) {
       this.setState({
         darkModeIcon: darkMode,
-        isDarkMode: false
+        isDarkMode: false,
+        appClass: "App",
+        soundsCompClass: "sounds-panel",
+        playerCompClass: "music-player"
       })
     }
   }
@@ -85,14 +95,14 @@ class App extends Component {
 
   render() {
   return (
-    <div className="App">
+    <div className={this.state.appClass}>
       <header>
         <h1>Calmly</h1>
         <button onClick={this.handleDarkMode}><img src={this.state.darkModeIcon} /></button>
       </header>
       <div className="main-container">
-        <Sounds sounds={this.state.sounds} handleSound={this.handleSound} />
-        <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} />
+        <Sounds sounds={this.state.sounds} handleSound={this.handleSound} soundsCompClass={this.state.soundsCompClass} />
+        <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} playerCompClass={this.state.playerCompClass} />
       </div>
     </div>
   );
