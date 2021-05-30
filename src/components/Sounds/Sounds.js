@@ -7,7 +7,7 @@ function Sounds (props) {
         
             <button 
                 onClick={() => {
-                    props.handleSound(sound.listen, sound.look)
+                    props.handleSound(sound.name, sound.listen, sound.look)
                 }}
             >{sound.name}</button>
 

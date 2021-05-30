@@ -2,25 +2,39 @@ import React, { Component } from 'react';
 import './App.css';
 import MusicPlayer from './components/MusicPlayer/MusicPlayer';
 import Sounds from './components/Sounds/Sounds';
+// IMPORT FILES FROM ASSETS
+import BirdPhoto from './assets/photos/birds.jpg';
+import BirdSound from './assets/sounds/birds.wav';
+import BrookPhoto from './assets/photos/brook.jpg';
+import BrookSound from './assets/sounds/brook.wav';
+import FirePhoto from './assets/photos/fire.jpg';
+import FireSound from './assets/sounds/fire.wav';
+import WavesPhoto from './assets/photos/waves.jpg';
+import WavesSound from './assets/sounds/waves.wav';
+import WindPhoto from './assets/photos/wind.jpg';
+import WindSound from './assets/sounds/wind.mp3';
+
 
 class App extends Component {
 
   // STATE  
   state = {
     sounds : [
-      {name: "birds", listen: "../assets/sounds/birds.wav", look: "../assets/photos/birds.jpg"},
-      {name: "brook", listen: "../assets/sounds/brook.wav", look: "../assets/photos/brook.jpg"},
-      {name: "fire", listen: "../assets/sounds/fire.wav", look: "../assets/photos/fire.jpg"},
-      {name: "waves", listen: "../assets/sounds/waves.wav", look: "../assets/photos/waves.jpg"},
-      {name: "wind", listen: "../assets/sounds/wind.mp3", look: "../assets/photos/wind.jpg"}
+      {name: "Birds Chirping", listen: BirdSound, look: BirdPhoto},
+      {name: "Babbling Brook", listen: BrookSound, look: BrookPhoto},
+      {name: "Crackling Fire", listen: FireSound, look: FirePhoto},
+      {name: "Crashing Waves", listen: WavesSound, look: WavesPhoto},
+      {name: "Rushing Wind", listen: WindSound, look: WindPhoto}
     ],
-    currentSound: "",
-    currentPhoto: "",
+    currentName: "Birds Chirping",
+    currentSound: BirdSound,
+    currentPhoto: BirdPhoto,
   }
 
   //  HANDLER FUNCTIONS
-  handleSound = (incomingSound, incomingPhoto) => {
+  handleSound = (incomingName, incomingSound, incomingPhoto) => {
     this.setState({
+      currentName: incomingName,
       currentSound: incomingSound,
       currentPhoto: incomingPhoto
     })
@@ -34,7 +48,7 @@ class App extends Component {
         <h1>Calmly</h1>
       </header>
       <Sounds sounds={this.state.sounds} handleSound={this.handleSound} />
-      <MusicPlayer currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} />
+      <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} />
     </div>
   );
   }
