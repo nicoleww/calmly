@@ -1,0 +1,46 @@
+.music-player {
+  width: 70%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-container {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.img-container img {
+  width: 550px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.player-info {
+  display: flex;
+  height: 10vh;
+  margin-top: 50px;
+  align-items: center;
+}
+
+.player-info h3 {
+  font-size: 26px;
+}
+
+.player-info button {
+  border: none;
+  background-color: white;
+  margin-left: 40px;
+}
+
+.player-info button img {
+  width: 30px;
+}
+
+.player-info button img:hover {
+  transform: scale(1.2);
+}

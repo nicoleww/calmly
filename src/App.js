@@ -35,6 +35,8 @@ class App extends Component {
     currentPhoto: BirdPhoto,
     isPlaying: false,
     icon: playIcon,
+    isDarkMode: false,
+    darkModeIcon: darkMode,
   }
 
   //  HANDLER FUNCTIONS
@@ -67,19 +69,31 @@ class App extends Component {
   }
   }
   handleDarkMode = () => {
-
+    if (this.state.isDarkMode === false) {
+      this.setState({
+        darkModeIcon: lightMode,
+        isDarkMode: true
+      })
+    } else if (this.state.isDarkMode === true) {
+      this.setState({
+        darkModeIcon: darkMode,
+        isDarkMode: false
+      })
+    }
   }
 
 
   render() {
   return (
     <div className="App">
-      <header className="title">
+      <header>
         <h1>Calmly</h1>
-        <button onClick={this.handleDarkMode}><img src={darkMode} /></button>
+        <button onClick={this.handleDarkMode}><img src={this.state.darkModeIcon} /></button>
       </header>
-      <Sounds sounds={this.state.sounds} handleSound={this.handleSound} />
-      <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} />
+      <div className="main-container">
+        <Sounds sounds={this.state.sounds} handleSound={this.handleSound} />
+        <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} />
+      </div>
     </div>
   );
   }

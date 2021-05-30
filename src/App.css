@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Quicksand", sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  width: 100%;
+}
+
+header {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin-left: 50px;
+  letter-spacing: 2px;
+  font-size: 30px;
+}
+
+header button {
+  margin-right: 50px;
+  background-color: white;
+  border: none;
+}
+
+header button img {
+  height: 60px;
+  width: 60px;
+}
+
+header button img:hover {
+  transform: scale(1.4);
+}
+
+.main-container {
+  width: 100%;
+  display: flex;
+}
