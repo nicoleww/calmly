@@ -15,6 +15,8 @@ import WindPhoto from './assets/photos/wind.jpg';
 import WindSound from './assets/sounds/wind.mp3';
 import playIcon from './assets/icons/play.png';
 import stopIcon from './assets/icons/stop.png';
+import lightMode from './assets/icons/light.png';
+import darkMode from './assets/icons/dark.png';
 
 
 class App extends Component {
@@ -22,14 +24,14 @@ class App extends Component {
   // STATE  
   state = {
     sounds : [
-      {name: "Birds Chirping", listen: BirdSound, look: BirdPhoto},
-      {name: "Babbling Brook", listen: BrookSound, look: BrookPhoto},
-      {name: "Crackling Fire", listen: FireSound, look: FirePhoto},
-      {name: "Crashing Waves", listen: WavesSound, look: WavesPhoto},
-      {name: "Rushing Wind", listen: WindSound, look: WindPhoto}
+      {name: "Birds Chirping", listen: new Audio(BirdSound), look: BirdPhoto},
+      {name: "Babbling Brook", listen: new Audio(BrookSound), look: BrookPhoto},
+      {name: "Crackling Fire", listen: new Audio(FireSound), look: FirePhoto},
+      {name: "Crashing Waves", listen: new Audio(WavesSound), look: WavesPhoto},
+      {name: "Rushing Wind", listen: new Audio(WindSound), look: WindPhoto}
     ],
     currentName: "Birds Chirping",
-    currentSound: BirdSound,
+    currentSound: new Audio(BirdSound),
     currentPhoto: BirdPhoto,
     isPlaying: false,
     icon: playIcon,
@@ -44,25 +46,28 @@ class App extends Component {
     })
   }
   handlePlay = () => {
-    let song = new Audio(this.state.currentSound);
+    let song = this.state.currentSound;
     if (this.state.isPlaying === false) {
-      this.setState({
-        isPlaying: true,
-        icon: stopIcon
-      })
       song.play();
       song.addEventListener('ended', function() {
         song.currentTime = 0;
         song.play();
     })
+      this.setState({
+        isPlaying: true,
+        icon: stopIcon
+      })
   } else if (this.state.isPlaying === true) {
+    song.pause();
+    song.currentTime = 0;
     this.setState({
       isPlaying: false,
       icon: playIcon
     })
-    song.pause();
-    song.currentTime = 0;
   }
+  }
+  handleDarkMode = () => {
+
   }
 
 
@@ -71,6 +76,7 @@ class App extends Component {
     <div className="App">
       <header className="title">
         <h1>Calmly</h1>
+        <button onClick={this.handleDarkMode}><img src={darkMode} /></button>
       </header>
       <Sounds sounds={this.state.sounds} handleSound={this.handleSound} />
       <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} />
