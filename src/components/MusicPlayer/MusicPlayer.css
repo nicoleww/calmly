@@ -12,6 +12,7 @@
   height: 550px;
   border-radius: 50%;
   overflow: hidden;
+  border: 10px solid white;
 }
 
 .img-container img {
@@ -49,4 +50,39 @@
 
 .dark-mode button {
   background-color: rgb(60, 60, 60);
+}
+
+.dark-mode .img-container {
+  border: 10px solid rgb(60, 60, 60);
+}
+
+/* KEYFRAMES */
+
+.play-mode {
+  animation: playing 3s infinite ease-in;
+}
+
+@keyframes playing {
+  0% {
+  }
+  20% {
+    border-top: 10px solid rgb(213, 238, 253);
+  }
+  25% {
+    border-top: 10px solid rgb(144, 209, 250);
+  }
+  30% {
+    border-left: 10px solid rgb(157, 214, 250);
+  }
+  50% {
+    border-bottom: 10px solid rgb(171, 220, 250);
+  }
+  70% {
+    border-right: 10px solid rgb(201, 233, 253);
+  }
+  80% {
+    border-top: 10px solid rgb(213, 238, 253);
+  }
+  100% {
+  }
 }

@@ -4,7 +4,7 @@ import './MusicPlayer.css';
 function MusicPlayer (props) {
     return (
         <div className={props.playerCompClass}>
-            <div className="img-container">
+            <div className={props.musicPlayerClass}>
                 <img src={props.currentPhoto} />
             </div>
             <div className="player-info">

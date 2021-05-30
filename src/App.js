@@ -40,7 +40,7 @@ class App extends Component {
     appClass: "App",
     playerCompClass: "music-player",
     soundsCompClass: "sounds-panel",
-
+    musicPlayerClass: "img-container"
   }
 
   //  HANDLER FUNCTIONS
@@ -61,14 +61,16 @@ class App extends Component {
     })
       this.setState({
         isPlaying: true,
-        icon: stopIcon
+        icon: stopIcon,
+        musicPlayerClass: "img-container play-mode"
       })
   } else if (this.state.isPlaying === true) {
     song.pause();
     song.currentTime = 0;
     this.setState({
       isPlaying: false,
-      icon: playIcon
+      icon: playIcon,
+      musicPlayerClass: "img-container"
     })
   }
   }
@@ -102,7 +104,7 @@ class App extends Component {
       </header>
       <div className="main-container">
         <Sounds sounds={this.state.sounds} handleSound={this.handleSound} soundsCompClass={this.state.soundsCompClass} />
-        <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} playerCompClass={this.state.playerCompClass} />
+        <MusicPlayer currentName={this.state.currentName} currentSound={this.state.currentSound} currentPhoto={this.state.currentPhoto} handlePlay={this.handlePlay} icon={this.state.icon} playerCompClass={this.state.playerCompClass} musicPlayerClass={this.state.musicPlayerClass} />
       </div>
     </div>
   );
