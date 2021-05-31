@@ -1,5 +1,7 @@
 import React from 'react';
 import './MusicPlayer.css';
+import volUp from '../../assets/icons/vol-up.png';
+import volDown from '../../assets/icons/vol-down.png';
 
 function MusicPlayer (props) {
     return (

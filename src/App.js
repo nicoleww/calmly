@@ -45,6 +45,12 @@ class App extends Component {
 
   //  HANDLER FUNCTIONS
   handleSound = (incomingName, incomingSound, incomingPhoto) => {
+    if (this.state.currentSound !== null) {
+      this.setState({
+        isPlaying: false,
+        icon: playIcon
+      })
+    }
     this.setState({
       currentName: incomingName,
       currentSound: incomingSound,
@@ -93,7 +99,6 @@ class App extends Component {
       })
     }
   }
-
 
   render() {
   return (

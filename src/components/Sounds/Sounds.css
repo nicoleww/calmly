@@ -36,3 +36,27 @@
 .dark-mode button:hover {
   color: black;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1050px) {
+  .sounds-panel {
+    width: 100%;
+    min-height: 15vh;
+    margin-top: 100px;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .btn {
+    margin: 20px 50px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .sounds-panel {
+    margin-top: 80px;
+  }
+  .btn {
+    margin: 15px 10px;
+  }
+}

@@ -13,12 +13,12 @@ body {
 
 .App {
   min-height: 100vh;
-  width: 100%;
+  width: 100vw;
 }
 
 header {
   height: 10vh;
-  width: 100%;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,4 +57,22 @@ header button img:hover {
 
 .dark-mode button {
   background-color: rgb(60, 60, 60);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 1050px) {
+  .main-container {
+    flex-direction: column-reverse;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  header h1 {
+    font-size: 18px;
+  }
+  header button img {
+    width: 40px;
+    height: 40px;
+  }
 }
